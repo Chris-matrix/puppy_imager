@@ -9,10 +9,27 @@ h1 {
   margin-top: 20px;
 }
 
-div {
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 10vh;
+}
+
+.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.dark {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+img {
+  width: 80px; /* Adjusted width */
+  height: 80px; /* Adjusted height */
+  object-fit: cover;
+  margin-top: 10px;
 }

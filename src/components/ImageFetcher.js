@@ -1,8 +1,10 @@
 "use client";
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 const ImageFetcher = () => {
   const [imageUrl, setImageUrl] = useState('');
+  const [theme, setTheme] = useState('light');
 
   const fetchImage = async () => {
     try {
@@ -14,10 +16,17 @@ const ImageFetcher = () => {
     }
   };
 
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  };
+
   return (
-    <div>
+    <div className={theme}>
       <button onClick={fetchImage}>Fetch Random Puppy Image</button>
-      {imageUrl && <img src={imageUrl} alt="Random Puppy" style={{ marginTop: '20px', maxWidth: '100%' }} />}
+      {imageUrl && <Image src={imageUrl} alt="Random Puppy" layout="responsive" width={500} height={500} style={{ marginTop: '20px', maxWidth: '100%' }} />}
+      <button onClick={toggleTheme} style={{ marginTop: '20px' }}>
+        Toggle Theme
+      </button>
     </div>
   );
 };
